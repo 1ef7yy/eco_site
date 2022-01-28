@@ -1,0 +1,68 @@
+html{
+	margin: 0;
+	font-family: 'Montserrat', sans-serif;
+}
+
+body{
+	text-align: center;
+}
+
+.header{
+	margin-top: 50px;
+	text-align: center;
+}
+
+#header-text{
+	display: block;
+	font-size: 22px;
+}
+
+
+.main{
+	margin-top: 100px;
+	padding-left: 50px;
+}
+
+
+
+.select-menu{
+	margin-top:50px;
+}
+
+
+select{
+	display: inline-block;
+	margin: 0 auto;
+}
+
+
+.number-select{
+	margin-top: 15px;
+}
+
+
+#gpu-out{
+	margin-top: 50px;
+	display: inline-block;
+}
+
+
+
+.button-get-total{
+	margin: 0 auto;
+	display: block;
+	text-align: center;
+	margin-top: 50px;
+}
+
+
+.gpu-select-menu{
+	display:inline-block;
+}
+
+
+
+.cpu-select-menu{
+	margin-top: 50px;
+	display:block;
+}
