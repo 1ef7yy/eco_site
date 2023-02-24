@@ -132,8 +132,8 @@ const total = () => {
 	gpuTotal = gpu_n()*gpu_get();
 	document.getElementById("gpu-out").innerHTML = gpuTotal;
 	cpuTotal = cpu_get();
-	document.getElementById("cpu-out").innterHTML = cpuTotal;
+	document.getElementById("cpu-out").innerHTML = cpuTotal;
 	const extras = 0;
 	let overall = gpuTotal + cpuTotal + extras;
-
+	document.getElementById('total').innerHTML = overall;
 }

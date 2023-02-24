@@ -9,7 +9,6 @@ body{
 
 .header{
 	margin-top: 50px;
-	text-align: center;
 }
 
 #header-text{
@@ -20,7 +19,6 @@ body{
 
 .main{
 	margin-top: 100px;
-	padding-left: 50px;
 }
 
 
@@ -42,10 +40,6 @@ select{
 }
 
 
-#gpu-out{
-	margin-top: 50px;
-	display: inline-block;
-}
 
 
 
@@ -66,4 +60,18 @@ select{
 .cpu-select-menu{
 	margin-top: 50px;
 	display:block;
+}
+
+.cpu-select{
+	margin-top: 15px;
+}
+
+#cpu-out, #gpu-out, #total{
+	margin-top: 25px;
+	display: block;
+}
+
+
+.overall{
+	margin-top: 40px;
 }
