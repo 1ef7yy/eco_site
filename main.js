@@ -128,12 +128,87 @@ const cpu_get = () => {
 	return costCpu;
 }
 
+
+let extras = 0;
+const get_extras = () => {
+	let list1 = document.getElementById('firstList');
+	
+	// sv = selected value
+	let list1SV = list1.options[list1.selectedIndex].value;
+	switch(list1SV){
+	case '':
+			wattage_gpu = 0;
+			break;
+		case '1080ti':
+			wattage_gpu = 250;
+			
+			break;
+
+		case '1050ti':
+			wattage_gpu = 75;
+			break;
+
+		case '1650s':
+			wattage_gpu = 100;
+			break;
+
+		case '1660':
+			wattage_gpu = 125;
+			break;
+
+		case '3060':
+			wattage_gpu = 170;
+			break;
+
+		case '3060ti':
+			wattage_gpu = 200;
+			break;
+
+		case '6700xt':
+			wattage_gpu = 230;
+			break;
+
+		case '6900xt':
+			wattage_gpu = 300;
+			break;	
+	}
+	number_of_gpus = gpu_n();
+
+	let list3 = document.getElementById('thirdList');
+	
+	// sv = selected value
+	let list3SV = list3.options[list3.selectedIndex].value;
+
+	switch(list3SV){
+		case '':
+			wattage_cpu = 0;
+			break;
+		case '3970x':
+			wattage_cpu = 280;
+			break;
+		case '3950x':
+			wattage_cpu = 130;
+			break;
+		case '3600x':
+			wattage_cpu = 95;
+			break;
+	}
+
+
+	const kw_cost = 3.77;
+	let kw_sum = (number_of_gpus*wattage_gpu + wattage_cpu)/1000;
+	let cost = kw_sum*kw_cost*24*30
+	return Math.floor(cost);
+}
+
+
+
 const total = () => {
 	gpuTotal = gpu_n()*gpu_get();
-	document.getElementById("gpu-out").innerHTML = gpuTotal;
+	document.getElementById("gpu-out").innerHTML = gpuTotal+'₽';
 	cpuTotal = cpu_get();
-	document.getElementById("cpu-out").innerHTML = cpuTotal;
-	const extras = 0;
-	let overall = gpuTotal + cpuTotal + extras;
-	document.getElementById('total').innerHTML = overall;
+	document.getElementById("cpu-out").innerHTML = cpuTotal+'₽';
+	let extras = get_extras();
+	let result = `${gpuTotal + cpuTotal}₽ + ${extras}₽/месяц (${extras*12}₽/год)`
+	document.getElementById('total').innerHTML = result;
 }
