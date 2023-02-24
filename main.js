@@ -28,6 +28,13 @@ $(document).ready(function () {
 	list2.options[6] = new Option('7', '7');
 	list2.options[7] = new Option('8', '8');
 	
+
+
+	let list3 = document.getElementById('thirdList');
+	list3.options[0] = new Option('--Выберите--', '');
+	list3.options[1] = new Option('AMD Ryzen Threadripper 3970X', '3970x');
+	list3.options[2] = new Option('AMD Ryzen 9 3950X', '3950x');
+	list3.options[3] = new Option('AMD Ryzen 5 3600X', '3600x');
 });
 
 
@@ -35,7 +42,7 @@ $(document).ready(function () {
 // типа райзеров и озу
 
 let costGpu = 0;
-function gpu_get(){
+const gpu_get = () => {
 	let list1 = document.getElementById('firstList');
 	
 	// sv = selected value
@@ -87,7 +94,7 @@ function gpu_get(){
 
 
 
-function gpu_n(){
+const gpu_n = () => {
 
 
 	let list2 = document.getElementById('secondList');
@@ -99,12 +106,34 @@ function gpu_n(){
 };
 		
 
+let costCpu = 0;
+const cpu_get = () => {
+	let list3 = document.getElementById('thirdList');
+	
+	// sv = selected value
+	let list3SV = list3.options[list3.selectedIndex].value;
 
-function cpu_get(){
-
+	switch(list3SV){
+		case '':
+			costCpu = 0;
+			break;
+		case '3970x':
+			costCpu = 206000;
+			break;
+		case '3950x':
+			costCpu = 73000;
+		case '3600x':
+			costCpu = 13000;
+	}
+	return costCpu;
 }
 
-function total(){
+const total = () => {
 	gpuTotal = gpu_n()*gpu_get();
 	document.getElementById("gpu-out").innerHTML = gpuTotal;
+	cpuTotal = cpu_get();
+	document.getElementById("cpu-out").innterHTML = cpuTotal;
+	const extras = 0;
+	let overall = gpuTotal + cpuTotal + extras;
+
 }
