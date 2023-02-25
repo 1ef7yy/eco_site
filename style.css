@@ -47,7 +47,7 @@ select{
 	margin: 0 auto;
 	display: block;
 	text-align: center;
-	margin-top: 50px;
+	padding-top: 50px;
 }
 
 
@@ -58,7 +58,7 @@ select{
 
 
 .cpu-select-menu{
-	margin-top: 50px;
+	margin-top: 30px;
 	display:block;
 }
 
@@ -73,5 +73,7 @@ select{
 
 
 .overall{
-	margin-top: 40px;
+	margin-top: 30px;
+	height: 100px;
+	display:inline-block
 }

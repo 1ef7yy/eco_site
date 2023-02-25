@@ -141,7 +141,6 @@ const get_extras = () => {
 			break;
 		case '1080ti':
 			wattage_gpu = 250;
-			
 			break;
 
 		case '1050ti':
@@ -198,17 +197,32 @@ const get_extras = () => {
 	const kw_cost = 3.77;
 	let kw_sum = (number_of_gpus*wattage_gpu + wattage_cpu)/1000;
 	let cost = kw_sum*kw_cost*24*30
+	console.log(kw_sum);
 	return Math.floor(cost);
 }
 
 
 
 const total = () => {
-	gpuTotal = gpu_n()*gpu_get();
+	gpu_number = gpu_n();
+	gpuTotal = gpu_number*gpu_get();
 	document.getElementById("gpu-out").innerHTML = gpuTotal+'₽';
 	cpuTotal = cpu_get();
 	document.getElementById("cpu-out").innerHTML = cpuTotal+'₽';
 	let extras = get_extras();
-	let result = `${gpuTotal + cpuTotal}₽ + ${extras}₽/месяц (${extras*12}₽/год)`
+	let riser_cost;
+	if (gpu_get() == 0){
+		riser_cost = 0;
+	} else {
+		riser_cost = 300;
+	}
+
+	let mother_cost = 12000; // средняя по рынку
+	let ram_cost = 2500;
+	let ssd_cost = 3500; // 860 evo
+	let psu_cost = 11000; // -> switch per watt (approx. rn)
+	let small_sum = mother_cost+ram_cost+ssd_cost+psu_cost+riser_cost*gpu_number;
+	let total = gpuTotal + cpuTotal + small_sum;
+	let result = `${gpuTotal}₽ + ${cpuTotal}₽ + ${small_sum}₽<br /> =<br /> ${total}₽ + ${extras}₽/месяц (${extras*12}₽/год)`
 	document.getElementById('total').innerHTML = result;
 }
