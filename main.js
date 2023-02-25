@@ -55,36 +55,36 @@ const gpu_get = () => {
 			costGpu = 0;
 			break;
 		case '1080ti':
-			costGpu = 85000;
+			costGpu = 23000;
 			
 			break;
 
 		case '1050ti':
-			costGpu = 25000;
+			costGpu = 15000;
 			break;
 
 		case '1650s':
-			costGpu = 45000;
+			costGpu = 20000;
 			break;
 
 		case '1660':
-			costGpu = 48000;
+			costGpu = 21000;
 			break;
 
 		case '3060':
-			costGpu = 83000;
+			costGpu = 30000;
 			break;
 
 		case '3060ti':
-			costGpu = 100000;
+			costGpu = 41000;
 			break;
 
 		case '6700xt':
-			costGpu = 110000;
+			costGpu = 43000;
 			break;
 
 		case '6900xt':
-			costGpu = 160000;
+			costGpu = 73000;
 			break;	
 
 		
